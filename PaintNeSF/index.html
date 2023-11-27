@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="PaintNeSF: Artistic Creation of Stylized Scenes with Vectorized 3D Strokes">
+  <meta name="keywords" content="Stroke-based Rendering, Neural Radiance Fields">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PaintNeSF</title>
+
+  <!-- Bootstrap -->
+  <link href="static/css/bootstrap-4.4.1.css" rel="stylesheet">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V2NT8PJYCQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-V2NT8PJYCQ');
+  </script>
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 0">PaintNeSF: Artistic Creation of Stylized Scenes with Vectorized 3D Strokes</h2>
+          <br/>
+          <h2 class="title is-5 publication-title" style="color:#6e6e6e;margin-top: 2; margin-bottom: 2"></h2>
+  
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Hao-Bin Duan<sup>1</sup>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="http://miaowang.me/">Miao Wang</a><sup>1, 2</sup>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              Yan-Xun Li<sup>1</sup>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://www.yongliangyang.net/">Yong-Liang Yang</a><sup>3</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>State Key Laboratory of Virtual Reality Technology and Systems, Beihang University</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>Zhongguancun Laboratory</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>3</sup>Department of Computer Science, University of Bath</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!--
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              -->
+              <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark" href="">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!--
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark disabled">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!--
+              <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span>
+              -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!--
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./resources/teaser.png"
+                type="video/mp4">
+      </video>
+      -->
+      <img src="./resources/teaser.png" class="center">
+      <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+        TL;DR: PaintNeSF generates stylized 3D scenes with vectorized 3D strokes.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!--
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Reconstructions</h2>
+
+        <div class="embed-responsive embed-responsive-16by9">
+
+          <iframe style="clip-path: inset(1px 1px)" src="https://sketchfab.com/playlists/embed?collection=abee3cc1a7a7436c804f2bd3aadc2acd" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+        
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+-->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present <b>Paint Neural Stroke Field (PaintNeSF)</b>, a novel technique to generate stylized images of a 3D scene at arbitrary novel views from multi-view 2D images. 
+            Different from existing methods which apply stylization to trained neural radiance fields at the voxel level, our approach draws inspiration from image-to-painting methods, simulating the progressive painting process of human artwork with vector strokes. 
+            We develop a palette of stylized 3D strokes from basic primitives and splines, and consider the 3D scene stylization task as a multi-view reconstruction process based on these 3D stroke primitives. 
+            Instead of directly searching for the parameters of these 3D strokes, which would be too costly, we introduce a differentiable renderer that allows optimizing stroke parameters using gradient descent, and propose a training scheme to alleviate the vanishing gradient issue. 
+            The extensive evaluation demonstrates that our approach effectively synthesizes 3D scenes with significant geometric and aesthetic stylization while maintaining a consistent appearance across different views. 
+            Our method can be further integrated with style loss and image-text contrastive models to extend its applications, including color transfer and text-driven 3D scene drawing.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <!-- Paper video. -->
+    <!--
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px">Overview</h2>
+
+        <img src="./resources/overview.png" class="center" width="55%">
+        <div class="content has-text-justified">
+          <p style="margin-top: 30px">
+            Our method learns a vectorized stroke field instead of MLP-based implicit representation to represent a 3D scene.
+            We construct a palette of 3D strokes based on geometric primitives and spline curves.
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Results. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Results</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We test our stroke-based 3D scene representation on the Blender and LLFF dataset.
+            For single object scenes, we use 500 strokes, while for face-forwarding scenes, we use 1000 strokes.
+            Our vectorized stroke representation is able to recover the 3D scenes with high fidelity while maintaining a strong geometric style defined by the strokes.
+            <br>
+            <b>We recommend zoom-in to observe the visual details of 3D strokes.</b>
+          </p>
+        </div>
+
+        <div class="content has-text-centered">
+          <img src="./resources/rblender.png" class="center" width="100%">
+        </div>
+
+        <div class="content has-text-centered">
+          <img src="./resources/rllff.png" class="center" width="100%">
+        </div>
+
+        <div class="content has-text-justified">
+          <p>
+            By changing the total number of strokes, our stroke-based representation can capture both the abstraction and fine-grained details of the original scenes.
+          </p>
+        </div>
+
+        <div class="content has-text-centered">
+          <img src="./resources/rprogress.png" class="center" width="100%">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Ablation Studies. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Video Results</h2>
+
+        <div class="content has-text-centered">
+          <p>
+          We demonstrate the novel view synthesis on the stylized scenes based on different 3D strokes.
+          </p>
+        </div>
+
+        <div class="content has-text-justified container" style="width: 80%;">
+          <div id="videos1" class="carousel results-carousel">
+            <div class="item">
+              <video id="replay-video"
+                    autoplay
+                    controls
+                    muted
+                    preload
+                    playsinline
+                    loop
+                    width="100%"
+                    height="100%">
+                <source src="./resources/recon1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video id="replay-video"
+                    autoplay
+                    controls
+                    muted
+                    preload
+                    playsinline
+                    loop
+                    width="100%"
+                    height="100%">
+                <source src="./resources/recon2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video id="replay-video"
+                    autoplay
+                    controls
+                    muted
+                    preload
+                    playsinline
+                    loop
+                    width="100%"
+                    height="100%">
+                <source src="./resources/recon3.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video id="replay-video"
+                    autoplay
+                    controls
+                    muted
+                    preload
+                    playsinline
+                    loop
+                    width="100%"
+                    height="100%">
+                <source src="./resources/recon4.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video id="replay-video"
+                    autoplay
+                    controls
+                    muted
+                    preload
+                    playsinline
+                    loop
+                    width="100%"
+                    height="100%">
+                <source src="./resources/recon5.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="content has-text-centered">
+          <p>
+          The stroke-by-stroke painting process by progressive adding strokes into the scenes.
+          </p>
+        </div>
+
+        <div class="content has-text-justified container" style="width: 80%;">
+          <div id="videos2" class="carousel results-carousel">
+            <div class="item">
+              <video id="replay-video"
+                    autoplay
+                    controls
+                    muted
+                    preload
+                    playsinline
+                    loop
+                    width="100%"
+                    height="100%">
+                <source src="./resources/prog1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video id="replay-video"
+                    autoplay
+                    controls
+                    muted
+                    preload
+                    playsinline
+                    loop
+                    width="100%"
+                    height="100%">
+                <source src="./resources/prog2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video id="replay-video"
+                    autoplay
+                    controls
+                    muted
+                    preload
+                    playsinline
+                    loop
+                    width="100%"
+                    height="100%">
+                <source src="./resources/prog3.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video id="replay-video"
+                    autoplay
+                    controls
+                    muted
+                    preload
+                    playsinline
+                    loop
+                    width="100%"
+                    height="100%">
+                <source src="./resources/prog4.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video id="replay-video"
+                    autoplay
+                    controls
+                    muted
+                    preload
+                    playsinline
+                    loop
+                    width="100%"
+                    height="100%">
+                <source src="./resources/prog5.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Comparisons. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Comparison</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We compare our method with other 2D-based stroke rendering methods.
+            Our method achieves strict multi-view consistency thanks to its inherent 3D representation.
+          </p>
+        </div>
+ 
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/comparison.mp4" type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    
+    <div class="content has-text-justified">
+      <p>
+        If you find this work useful for your work, please cite us:
+      </p>
+    </div>
+
+    <pre><code></code></pre>
+  </div>
+</section> -->
+
+
+
+<!-- <section class="section" id="Acknowledgements">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgements</h2>
+    The authors express gratitude to the anonymous reviewers for their valuable feedback. 
+    This work was supported by the National Natural Science Foundation of China (Project Number: 61932003) and the Fundamental Research Funds for the Central Universities. 
+  </div>
+</section> -->
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
+            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+          <p></p>
+        </div>
+      </div>
+</footer>
+
+</body>
+</html>
