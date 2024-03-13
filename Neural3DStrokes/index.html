@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="PaintNeSF: Artistic Creation of Stylized Scenes with Vectorized 3D Strokes">
+        content="Neural 3D Strokes: Creating Stylized 3D Scenes with Vectorized 3D Strokes">
   <meta name="keywords" content="Stroke-based Rendering, Neural Radiance Fields">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PaintNeSF</title>
+  <title>Neural 3D Strokes</title>
 
   <!-- Bootstrap -->
   <link href="static/css/bootstrap-4.4.1.css" rel="stylesheet">
@@ -48,7 +48,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h2 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 0">PaintNeSF: Artistic Creation of Stylized Scenes with Vectorized 3D Strokes</h2>
+          <h2 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 0">Neural 3D Strokes: Creating Stylized 3D Scenes with Vectorized 3D Strokes</h2>
           <br/>
 
           <div class="is-size-5 publication-authors">
@@ -111,7 +111,7 @@
               -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a class="external-link button is-normal is-rounded is-dark disabled" href="https://github.com/buaavrcg/PaintNeSF">
+                <a class="external-link button is-normal is-rounded is-dark disabled" href="https://github.com/buaavrcg/Neural3DStrokes">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
@@ -150,7 +150,7 @@
       -->
       <img src="./resources/teaser.png" class="center">
       <h2 class="subtitle has-text-centered" style="margin-top: 15px">
-        TL;DR: PaintNeSF generates stylized 3D scenes with vectorized 3D strokes.
+        TL;DR: Neural3DStrokes generates stylized 3D scenes with vectorized 3D strokes.
       </h2>
     </div>
   </div>
@@ -186,7 +186,7 @@
         <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present <b>Paint Neural Stroke Field (PaintNeSF)</b>, a novel technique to generate stylized images of a 3D scene at arbitrary novel views from multi-view 2D images. 
+            We present <b>Neural 3D Strokes</b>, a novel technique to generate stylized images of a 3D scene at arbitrary novel views from multi-view 2D images. 
             Different from existing methods which apply stylization to trained neural radiance fields at the voxel level, our approach draws inspiration from image-to-painting methods, simulating the progressive painting process of human artwork with vector strokes. 
             We develop a palette of stylized 3D strokes from basic primitives and splines, and consider the 3D scene stylization task as a multi-view reconstruction process based on these 3D stroke primitives. 
             Instead of directly searching for the parameters of these 3D strokes, which would be too costly, we introduce a differentiable renderer that allows optimizing stroke parameters using gradient descent, and propose a training scheme to alleviate the vanishing gradient issue. 
@@ -496,10 +496,10 @@
       </p>
     </div>
 
-    <pre><code>@misc{duan2023paintnesf,
-      title={PaintNeSF: Artistic Creation of Stylized Scenes with Vectorized 3D Strokes}, 
+    <pre><code>@misc{duan2024neural,
+      title={Neural 3D Strokes: Creating Stylized 3D Scenes with Vectorized 3D Strokes}, 
       author={Hao-Bin Duan and Miao Wang and Yan-Xun Li and Yong-Liang Yang},
-      year={2023},
+      year={2024},
       eprint={2311.15637},
       archivePrefix={arXiv},
       primaryClass={cs.CV}
