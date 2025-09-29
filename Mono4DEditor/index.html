@@ -6,7 +6,7 @@
         content="Mono4DEditor: Text-Driven 4D Scene Editing from Monocular Video via Point-Level Localization of Language-Embedded Gaussians">
   <meta name="keywords" content="3D Gaussians, Language Embedded 3D Scene Representation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mono4DEditor</title>
+  <title>Mono4DEditor: Text-Driven 4D Scene Editing from Monocular Video via Point-Level Localization of Language-Embedded Gaussians</title>
 
   <!-- Bootstrap -->
   <link href="static/css/bootstrap-4.4.1.css" rel="stylesheet">
@@ -73,8 +73,12 @@
             <span class="author-block"><sup>1</sup> Zhejiang University
             <span class="author-block"><sup>2</sup> State Key Laboratory of Virtual Reality Technology and Systems, Beihang University
             <span class="author-block"><sup>3</sup> Reichman University
+
           </div>
-          <br/>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup> Equal contribution
+          </div>
           
           <!-- <h2 class="title is-5 publication-title" style="color:#6e6e6e;margin-top: 2; margin-bottom: 2">CVPR 2024</h2> -->
 
@@ -97,18 +101,6 @@
                   <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
-              
-              <span class="link-block">
-                <a href="https://drive.google.com/drive/folders/1vJ3le9lIGq8zl3ls1OzkBQ-rXLiSSc22?usp=drive_link"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
-              </span>
-
             </div>
 
           </div>
@@ -127,9 +119,9 @@
                 type="video/mp4">
       </video>
       -->
-      <img src="./resources/teaser.png" class="center">
+      <img src="./resources/teaser.png" class="center" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
       <h2 class="subtitle has-text-centered" style="margin-top: 15px">
-        TL;DR: We present Language Embedded 3D Gaussians, a novel efficient scene representation for open-vocabulary querying. 
+        TL;DR: xxx. 
       </h2>
     </div>
   </div>
@@ -144,13 +136,8 @@
         <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Open-vocabulary querying in 3D space is challenging but essential for scene understanding tasks such as object localization and segmentation. 
-            Language-embedded scene representations have made progress by incorporating language features into 3D spaces. 
-            However, their efficacy heavily depends on neural networks that are resource-intensive in training and rendering. 
-            Although recent 3D Gaussians offer efficient and high-quality novel view synthesis, directly embedding language features in them leads to prohibitive memory usage and decreased performance. 
-            In this work, we introduce <b>Language Embedded 3D Gaussians</b>, a novel scene representation for open-vocabulary query tasks. 
-            Instead of embedding high-dimensional raw semantic features on 3D Gaussians, we propose a dedicated quantization scheme that drastically alleviates the memory requirement, and a novel embedding procedure that achieves smoother yet high accuracy query, countering the multi-view feature inconsistencies and the high-frequency inductive bias in point-based representations. 
-            Our comprehensive experiments show that our representation achieves the best visual quality and language querying accuracy across current language-embedded representations, while maintaining real-time rendering frame rates on a single desktop GPU.
+            Editing 4D scenes reconstructed from monocular videos based on text prompts is a valuable yet challenging task with broad applications in content creation and virtual environments. The key difficulty lies in achieving semantically precise edits in localized regions of complex, dynamic scenes, while preserving the integrity of unedited content. 
+            To address this, we introduce <b>Mono4DEditor</b>, a novel framework for flexible and accurate text-driven 4D scene editing. Our method augments 3D Gaussians with quantized CLIP features to form a language-embedded dynamic representation, enabling efficient semantic querying of arbitrary spatial regions. We further propose a two-stage point-level localization strategy that first selects candidate Gaussians via CLIP similarity and then refines their spatial extent to improve accuracy. Finally, targeted edits are performed on localized regions using a diffusion-based video editing model, with flow and scribble guidance ensuring spatial fidelity and temporal coherence. Extensive experiments demonstrate that Mono4DEditor enables high-quality, text-driven edits across diverse scenes and object types, while preserving the appearance and geometry of unedited areas and surpassing prior approaches in both flexibility and visual fidelity.
           </p>
         </div>
       </div>
@@ -336,8 +323,20 @@
   </div>
 </section>
 
+<br>
+<section class="section" id="Related work">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">Related links</h2>
+    We recognize that a few concurrent works address similar problems to ours. We encourage you to check them out: <br>
+    <li><a href="https://www.cis.upenn.edu/~leijh/projects/mosca/">MoSca: Dynamic Gaussian Fusion from Casual Videos via 4D Motion Scaffolds</a></li>
+    <li><a href="https://arxiv.org/pdf/2406.18717">Dynamic Gaussian Marbles for Novel View Synthesis of Casual Monocular Videos</a></li>
+    <li><a href="https://dreamscene4d.github.io">DreamScene4D: Dynamic Multi-Object Scene Generation from Monocular Videos</a></li> 
+    <li><a href="https://littlepure2333.github.io/GFlow/">GFlow: Recovering 4D World from Monocular Video</a></li>
+    <li><a href="https://modgs.github.io/">MoDGS: Dynamic Gaussian Splatting from Causually-captured Monocular Videos</a></li>
+  </div>
+</section>
 
-
+<br>
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
@@ -348,27 +347,13 @@
       </p>
     </div>
 
-    <pre><code>@article{shi2023language,
-  title={Language Embedded 3D Gaussians for Open-Vocabulary Scene Understanding}, 
-  author={Jin-Chuan Shi and Miao Wang and Hao-Bin Duan and Shao-Hua Guan},
-  journal={arXiv preprint arXiv:2311.18482},
-  year={2023}
-}</code></pre>
+    <pre><code>
+      xxx
+    </code></pre>
   </div>
 </section>
 
-
-
-<!-- <section class="section" id="Acknowledgements">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Acknowledgements</h2>
-    The authors express gratitude to the anonymous reviewers for their valuable feedback. 
-    This work was supported by the National Natural Science Foundation of China (Project Number: 61932003) and the Fundamental Research Funds for the Central Universities. 
-  </div>
-</section> -->
-
-
-
+<br>
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
